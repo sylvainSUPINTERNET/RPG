@@ -1,0 +1,13 @@
+{
+    "name": "sylvain/phprpg",
+    "authors": [
+        {
+            "name": "JOLY Sylvain",
+            "email": "sylvain.joly@edu.devinci.fr"
+        }
+    ],
+    "require": {
+        "twig/twig": "2.0",
+        "twbs/bootstrap": "4.1.3"
+    }
+}
