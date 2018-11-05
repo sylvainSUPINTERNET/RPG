@@ -8,6 +8,7 @@
 
 require_once './vendor/autoload.php';
 
+use RPG\models\Player;
 
 $loader = new Twig_Loader_Filesystem('./views');
 
@@ -102,11 +103,11 @@ class Init
      */
     public function initGame()
     {
-        echo $this->twig->render('map.html', [
-            'game_title' => $this->getGameTitle(),
-            'board' => $this->generateBoard(),
-            'theme' => $this->getGameTheme()
-        ]);
+            echo $this->twig->render('map.html', [
+                'game_title' => $this->getGameTitle(),
+                'board' => $this->generateBoard(),
+                'theme' => $this->getGameTheme()
+            ]);
     }
 
 
@@ -114,5 +115,13 @@ class Init
 
 
 $game = new Init($twig, "Classic", "medium");
-$game->initGame();
+
+
+//start the game
+try {
+    $game->initGame();
+} catch (Twig_Error_Loader $e) {
+} catch (Twig_Error_Runtime $e) {
+} catch (Twig_Error_Syntax $e) {
+}
 
